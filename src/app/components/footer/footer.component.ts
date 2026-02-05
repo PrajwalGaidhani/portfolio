@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
       <div class="footer-container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Prajwal Gaidhani</h3>
+            <h3>Prajwal A. Gaidhani</h3>
             <p>Software Consultant • System Design & Cloud Architecture Enthusiast</p>
             <div class="social-links">
               <a href="https://github.com/PrajwalGaidhani" target="_blank" title="GitHub">
