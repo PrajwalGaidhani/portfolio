@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
         </button>
 
         <ul class="nav-links" [class.active]="menuOpen()">
-          <li class="home-link"><a routerLink="/" (click)="closeMenu()">Home</a></li>
+          <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
           <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
           <li><a href="#about" (click)="closeMenu()">About</a></li>
           <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
@@ -86,10 +86,6 @@ import { RouterLink } from '@angular/router';
       letter-spacing: -0.5px;
     }
 
-    .home-link {
-      display: none !important;
-    }
-
     .nav-links {
       display: flex;
       list-style: none;
@@ -97,10 +93,6 @@ import { RouterLink } from '@angular/router';
       margin: 0;
       padding: 0;
       align-items: center;
-
-      li.home-link {
-        display: none;
-      }
 
       li {
         a {
@@ -202,25 +194,16 @@ import { RouterLink } from '@angular/router';
         padding: 2rem;
         background: var(--background-light);
         box-shadow: var(--shadow);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        display: none;
+        transition: all 0.3s ease;
 
         @media (prefers-color-scheme: dark) {
           background: var(--background-dark);
           box-shadow: var(--shadow-dark);
         }
 
-        li.home-link {
-          display: none;
-        }
-
         &.active {
-          max-height: 400px;
-
-          li.home-link {
-            display: block;
-          }
+          display: flex;
         }
 
         li {

@@ -28,7 +28,6 @@ import { FooterComponent } from './components/footer/footer.component';
       <app-contact></app-contact>
     </main>
     <app-footer></app-footer>
-    <router-outlet></router-outlet>
   `,
   styles: [`
     .main-content {
