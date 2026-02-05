@@ -266,57 +266,57 @@ export class ProjectsComponent {
   projects = signal<Project[]>([
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration and admin dashboard.',
-      tags: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
+      title: 'Ecommerce Microservices Platform',
+      description: 'Scalable ecommerce platform with microservices architecture. Implemented distributed services via Kafka, Elasticsearch for fast search, Redis caching, and AWS infrastructure with load balancing.',
+      tags: ['Java', 'Python', 'Kafka', 'Elasticsearch', 'AWS', 'Docker'],
       image: 'ecommerce',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Collaborative task management tool with real-time updates and team features.',
-      tags: ['React', 'Firebase', 'Tailwind CSS'],
-      image: 'taskapp',
+      title: 'Server Monitoring & Automation System',
+      description: 'Python-based automation framework monitoring 50+ servers with real-time logging, automated alerts, and performance optimization. Boosted system uptime by 30%, reduced manual intervention by 50%.',
+      tags: ['Python', 'Shell Script', 'AWS', 'Linux', 'System Design'],
+      image: 'monitoring',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     },
     {
       id: 3,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for managing multiple social media accounts.',
-      tags: ['Vue.js', 'Chart.js', 'Express.js'],
-      image: 'dashboard',
+      title: 'Skin Lesion Detection Web App',
+      description: 'Django-based web application using CNN (VGG16, ResNet50) for medical image classification. Achieved 92% accuracy and reduced diagnostic time by 50%.',
+      tags: ['Django', 'CNN', 'Python', 'TensorFlow', 'React', 'MySQL'],
+      image: 'ml-detection',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     },
     {
       id: 4,
-      title: 'AI Chat Application',
-      description: 'Real-time chat application with AI-powered responses and sentiment analysis.',
-      tags: ['Angular', 'WebSocket', 'Python', 'TensorFlow'],
-      image: 'chatapp',
+      title: 'Automated Data Extraction Pipeline',
+      description: 'Custom Python tools for automated data extraction and report generation. Reduced manual reporting efforts by 60% using Pandas, cron jobs, and scheduled workflows.',
+      tags: ['Python', 'Pandas', 'SQL', 'Automation'],
+      image: 'data-pipeline',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     },
     {
       id: 5,
-      title: 'Fitness Tracking App',
-      description: 'Mobile-responsive fitness app with workout tracking and nutrition planning.',
-      tags: ['React Native', 'Firebase', 'Redux'],
-      image: 'fitness',
+      title: 'Fault-Tolerant Logging System',
+      description: 'Real-time distributed logging system generating critical alerts for 50+ servers across multiple regions, ensuring 24/7 operational efficiency.',
+      tags: ['Python', 'AWS', 'System Design', 'Linux', 'Monitoring'],
+      image: 'logging',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     },
     {
       id: 6,
-      title: 'Content Management System',
-      description: 'Headless CMS with GraphQL API and modern content editor interface.',
-      tags: ['Next.js', 'GraphQL', 'PostgreSQL', 'Headless UI'],
-      image: 'cms',
+      title: 'SIH Winner - System Optimization Platform',
+      description: 'Smart India Hackathon winning project. Designed a system to streamline claims analysis and validation, improving efficiency by 20-30%.',
+      tags: ['Full Stack', 'System Design', 'Problem Solving'],
+      image: 'sih',
       link: '#',
-      github: '#'
+      github: 'https://github.com/PrajwalGaidhani'
     }
   ]);
 }

@@ -21,31 +21,27 @@ interface Skill {
         <div class="about-content">
           <div class="about-text animate-slide-in-left">
             <p>
-              I'm a passionate full-stack developer with over 5 years of experience building web applications.
-              I specialize in creating user-centered solutions using modern technologies and best practices.
+              I'm a Software Consultant at Volkswagen IT Services with deep expertise in building scalable systems, automation, and cloud infrastructure. I have hands-on experience with Python, Java, and React, with a strong foundation in system design and DSA.
             </p>
             <p>
-              My journey in tech started with a curiosity about how things work. Now, I love solving complex problems
-              and building applications that make a real impact. When I'm not coding, you can find me contributing to
-              open-source projects or learning new technologies.
+              My passion lies in creating fault-tolerant systems that drive operational efficiency. I've built automation frameworks that boosted system uptime by 30%, developed real-time logging systems monitoring 50+ servers, and created microservices architectures handling complex workflows.
             </p>
             <p>
-              I'm always excited to collaborate on interesting projects and help businesses achieve their goals through
-              innovative web solutions.
+              I love solving complex problems, optimizing performance, and continuously learning new technologies. I'm a Smart India Hackathon winner and have represented India at international competitions.
             </p>
 
             <div class="stats">
               <div class="stat">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">YRS EXPERIENCE</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">PROJECTS DELIVERED</div>
+              </div>
+              <div class="stat">
                 <div class="stat-number">50+</div>
-                <div class="stat-label">Projects Completed</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Happy Clients</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Years Experience</div>
+                <div class="stat-label">SERVERS MANAGED</div>
               </div>
             </div>
           </div>
@@ -224,16 +220,20 @@ interface Skill {
 export class AboutComponent {
   skills = signal<Skill[]>([
     {
-      category: 'Frontend',
-      items: ['Angular', 'React', 'Vue.js', 'TypeScript', 'HTML5', 'CSS3', 'SCSS', 'Tailwind CSS']
+      category: 'Languages & Core',
+      items: ['Java', 'Python', 'JavaScript', 'SQL', 'DSA', 'OOP', 'System Design']
     },
     {
-      category: 'Backend',
-      items: ['Node.js', 'Express.js', 'Python', 'Django', 'Java', 'C#', 'REST APIs', 'GraphQL']
+      category: 'Frontend & Web',
+      items: ['React', 'Angular', 'TypeScript', 'HTML5', 'CSS3', 'SCSS', 'Responsive Design']
+    },
+    {
+      category: 'Backend & Cloud',
+      items: ['Django', 'Node.js', 'AWS', 'Linux', 'Docker', 'Kafka', 'Microservices']
     },
     {
       category: 'Databases & Tools',
-      items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Git', 'Docker', 'CI/CD', 'AWS']
+      items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Elasticsearch', 'Redis', 'Git', 'CI/CD']
     }
   ]);
 }

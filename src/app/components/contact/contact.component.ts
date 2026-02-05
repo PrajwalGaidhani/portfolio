@@ -23,8 +23,8 @@ import { FormsModule } from '@angular/forms';
                 </svg>
               </div>
               <div>
-                <h3>Message</h3>
-                <p>hello@example.com</p>
+                <h3>Email</h3>
+                <p>prajwalgaidhani18@gmail.com</p>
               </div>
             </div>
 
@@ -36,7 +36,7 @@ import { FormsModule } from '@angular/forms';
               </div>
               <div>
                 <h3>Phone</h3>
-                <p>+1 (555) 123-4567</p>
+                <p>+91 8530259554</p>
               </div>
             </div>
 
@@ -49,7 +49,7 @@ import { FormsModule } from '@angular/forms';
               </div>
               <div>
                 <h3>Location</h3>
-                <p>San Francisco, CA</p>
+                <p>Pune, India</p>
               </div>
             </div>
           </div>
