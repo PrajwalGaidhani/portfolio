@@ -27,6 +27,12 @@ import { RouterLink } from '@angular/router';
           <li><a href="#about" (click)="closeMenu()">About</a></li>
           <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
           <li>
+            <button class="version-toggle" (click)="toggleVersion()" title="Switch version">
+              <span *ngIf="isAnimeVersion()">PRO</span>
+              <span *ngIf="!isAnimeVersion()">ANIME</span>
+            </button>
+          </li>
+          <li>
             <button class="theme-toggle" (click)="toggleTheme()" title="Toggle dark mode">
               <span *ngIf="!isDarkMode()">🌙</span>
               <span *ngIf="isDarkMode()">☀️</span>
@@ -212,6 +218,31 @@ import { RouterLink } from '@angular/router';
       }
     }
 
+    .version-toggle {
+      background: transparent;
+      border: 2px solid var(--accent-red);
+      color: var(--accent-red);
+      width: 50px;
+      height: 40px;
+      border-radius: 0;
+      font-size: 0.8rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--glow-red);
+      letter-spacing: 1px;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: var(--glow-red-intense);
+        background: var(--accent-red);
+        color: #ffffff;
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         position: absolute;
@@ -256,6 +287,7 @@ export class NavbarComponent {
   isScrolled = signal(false);
   menuOpen = signal(false);
   isDarkMode = signal(this.getPreferredColorScheme() === 'dark');
+  isAnimeVersion = signal(this.getStoredVersion() === 'anime');
 
   @HostListener('window:scroll')
   onScroll() {
@@ -279,10 +311,34 @@ export class NavbarComponent {
     }
   }
 
+  toggleVersion() {
+    this.isAnimeVersion.update(v => {
+      const newValue = !v;
+      const version = newValue ? 'anime' : 'professional';
+      localStorage.setItem('portfolio-version', version);
+      document.documentElement.setAttribute('data-version', version);
+      return newValue;
+    });
+  }
+
   private getPreferredColorScheme(): string {
     if (typeof window !== 'undefined') {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     return 'light';
+  }
+
+  private getStoredVersion(): string {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      return localStorage.getItem('portfolio-version') || 'anime';
+    }
+    return 'anime';
+  }
+
+  constructor() {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const storedVersion = localStorage.getItem('portfolio-version') || 'anime';
+      document.documentElement.setAttribute('data-version', storedVersion);
+    }
   }
 }

@@ -18,6 +18,26 @@
   --glow-red-intense: 0 0 40px rgba(255, 0, 85, 0.8);
 }
 
+// Professional Theme - Purple, Modern, Clean
+[data-version="professional"] {
+  --primary-color: #4F46E5;
+  --primary-dark: #4C1D95;
+  --secondary-color: #7C3AED;
+  --background-light: #FFFFFF;
+  --background-dark: #0F172A;
+  --surface-light: #F8FAFC;
+  --surface-dark: #1E293B;
+  --text-light: #1E293B;
+  --text-dark: #F1F5F9;
+  --border-light: #E2E8F0;
+  --border-dark: #334155;
+  --accent-red: #4F46E5;
+  --shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+  --shadow-dark: 0 10px 30px rgba(79, 70, 229, 0.3);
+  --glow-red: 0 0 20px rgba(79, 70, 229, 0.6);
+  --glow-red-intense: 0 0 40px rgba(79, 70, 229, 0.8);
+}
+
 // Dark Mode
 @media (prefers-color-scheme: dark) {
   :root {
@@ -234,5 +254,215 @@ button {
     width: 4px;
     height: 100%;
     background: linear-gradient(180deg, var(--accent-red), transparent);
+  }
+}
+
+/* Anime Background Effects */
+
+/* Thunder Animation */
+@keyframes thunderFlash {
+  0%, 10%, 15%, 100% {
+    opacity: 0;
+  }
+  5%, 11% {
+    opacity: 0.3;
+    background: rgba(255, 0, 85, 0.15);
+  }
+}
+
+/* Fire Particles Animation */
+@keyframes fireParticle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1);
+  }
+}
+
+/* Wind Drift Animation */
+@keyframes windDrift {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  10% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100vw + 100px));
+  }
+}
+
+/* Falling Leaves Animation */
+@keyframes fallingLeaves {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) translateX(100px) rotate(360deg);
+  }
+}
+
+/* Add animations to body */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: thunderFlash 6s ease-in-out infinite;
+  animation-delay: 2s;
+  z-index: 1;
+}
+
+/* Thunder effect - random timing */
+html {
+  perspective: 1000px;
+}
+
+/* Fire particle effects */
+.fire-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #FF0055, #FF3366);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 85, 0.8);
+}
+
+.fire-particle:nth-child(1) {
+  left: 10%;
+  top: 50%;
+  animation: fireParticle 4s ease-out infinite;
+  animation-delay: 0s;
+}
+
+.fire-particle:nth-child(2) {
+  left: 30%;
+  top: 40%;
+  animation: fireParticle 5s ease-out infinite;
+  animation-delay: 1.5s;
+}
+
+.fire-particle:nth-child(3) {
+  left: 70%;
+  top: 60%;
+  animation: fireParticle 4.5s ease-out infinite;
+  animation-delay: 3s;
+}
+
+.fire-particle:nth-child(4) {
+  left: 85%;
+  top: 45%;
+  animation: fireParticle 5.5s ease-out infinite;
+  animation-delay: 2.5s;
+}
+
+/* Wind particle effects */
+.wind-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 85, 0.4), transparent);
+  z-index: 0;
+}
+
+.wind-particle:nth-child(1) {
+  top: 25%;
+  animation: windDrift 8s linear infinite;
+  animation-delay: 0s;
+}
+
+.wind-particle:nth-child(2) {
+  top: 50%;
+  animation: windDrift 10s linear infinite;
+  animation-delay: 3s;
+}
+
+.wind-particle:nth-child(3) {
+  top: 75%;
+  animation: windDrift 9s linear infinite;
+  animation-delay: 5s;
+}
+
+/* Falling leaves effects */
+.falling-leaf {
+  position: fixed;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #FF0055 0%, #FF3366 100%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.3;
+}
+
+.falling-leaf:nth-child(1) {
+  left: 15%;
+  animation: fallingLeaves 12s ease-in infinite;
+  animation-delay: 0s;
+}
+
+.falling-leaf:nth-child(2) {
+  left: 35%;
+  animation: fallingLeaves 14s ease-in infinite;
+  animation-delay: 2s;
+}
+
+.falling-leaf:nth-child(3) {
+  left: 55%;
+  animation: fallingLeaves 11s ease-in infinite;
+  animation-delay: 4s;
+}
+
+.falling-leaf:nth-child(4) {
+  left: 75%;
+  animation: fallingLeaves 13s ease-in infinite;
+  animation-delay: 1s;
+}
+
+.falling-leaf:nth-child(5) {
+  left: 90%;
+  animation: fallingLeaves 12.5s ease-in infinite;
+  animation-delay: 3s;
+}
+
+/* Professional Mode - Hide anime effects */
+[data-version="professional"] {
+  body::before {
+    display: none;
+  }
+
+  .fire-particle,
+  .wind-particle,
+  .falling-leaf {
+    display: none;
   }
 }
