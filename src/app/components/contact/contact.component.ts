@@ -113,11 +113,7 @@ import { FormsModule } from '@angular/forms';
   styles: [`
     .contact {
       padding: 4rem 2rem;
-      background: var(--background-light);
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--background-dark);
-      }
+      background: #000000;
     }
 
     .contact-container {
@@ -128,10 +124,28 @@ import { FormsModule } from '@angular/forms';
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
+      position: relative;
+      padding-bottom: 1.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--accent-red);
+        box-shadow: var(--glow-red);
+      }
 
       h2 {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
+        font-weight: 900;
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: -1px;
 
         @media (max-width: 768px) {
           font-size: 2rem;
@@ -140,11 +154,8 @@ import { FormsModule } from '@angular/forms';
 
       p {
         font-size: 1.1rem;
-        color: var(--text-light);
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--text-dark);
-        }
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
       }
     }
 
@@ -169,49 +180,44 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       gap: 1.5rem;
       padding: 1.5rem;
-      background: var(--surface-light);
-      border-radius: 8px;
-      border: 1px solid var(--border-light);
+      background: #0a0a0a;
+      border-radius: 0;
+      border: 2px solid var(--accent-red);
+      box-shadow: var(--glow-red);
       transition: all 0.3s ease;
 
-      @media (prefers-color-scheme: dark) {
-        background: var(--surface-dark);
-        border: 1px solid var(--border-dark);
-      }
-
       &:hover {
-        transform: translateX(10px);
-        box-shadow: var(--shadow);
-
-        @media (prefers-color-scheme: dark) {
-          box-shadow: var(--shadow-dark);
-        }
+        transform: translateX(10px) scale(1.02);
+        box-shadow: var(--glow-red-intense);
       }
 
       h3 {
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
+        color: var(--accent-red);
+        font-weight: 900;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       p {
-        color: var(--text-light);
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--text-dark);
-        }
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
       }
     }
 
     .info-icon {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border-radius: 50%;
+      background: var(--accent-red);
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #ffffff;
       flex-shrink: 0;
+      box-shadow: var(--glow-red);
 
       svg {
         width: 24px;
@@ -232,33 +238,23 @@ import { FormsModule } from '@angular/forms';
 
     .form-input {
       padding: 0.75rem 1rem;
-      border: 2px solid var(--border-light);
-      border-radius: 8px;
+      border: 2px solid var(--accent-red);
+      border-radius: 0;
       font-size: 1rem;
-      font-family: inherit;
-      background: var(--background-light);
-      color: var(--text-light);
+      font-family: 'JetBrains Mono', monospace;
+      background: #0a0a0a;
+      color: #ffffff;
       transition: all 0.3s ease;
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--surface-dark);
-        color: var(--text-dark);
-        border: 2px solid var(--border-dark);
-      }
 
       &:focus {
         outline: none;
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        border-color: var(--accent-red);
+        box-shadow: var(--glow-red-intense);
       }
 
       &::placeholder {
-        color: var(--text-light);
+        color: #ffffff;
         opacity: 0.5;
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--text-dark);
-        }
       }
     }
 
@@ -268,29 +264,32 @@ import { FormsModule } from '@angular/forms';
 
     textarea.form-input {
       resize: none;
-      font-family: inherit;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .btn {
       padding: 0.75rem 2rem;
-      border-radius: 8px;
+      border-radius: 0;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: all 0.3s ease;
 
       &.btn-primary {
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-        color: white;
-        border: none;
-        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        background: var(--accent-red);
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        box-shadow: var(--glow-red);
 
         &:hover:not(:disabled) {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+          transform: scale(1.05) rotate(-1deg);
+          box-shadow: var(--glow-red-intense);
         }
 
         &:disabled {
-          opacity: 0.7;
+          opacity: 0.5;
           cursor: not-allowed;
         }
       }
@@ -298,11 +297,16 @@ import { FormsModule } from '@angular/forms';
 
     .success-message {
       padding: 1rem;
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      border-radius: 8px;
+      background: var(--accent-red);
+      color: #ffffff;
+      border-radius: 0;
       text-align: center;
-      animation: slideInRight 0.5s ease-out;
+      animation: bounceIn 0.5s ease-out;
+      box-shadow: var(--glow-red);
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   `]
 })

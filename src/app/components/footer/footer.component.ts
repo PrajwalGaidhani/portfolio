@@ -73,15 +73,10 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     .footer {
-      background: var(--background-light);
-      border-top: 1px solid var(--border-light);
-      color: var(--text-light);
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--background-dark);
-        border-top: 1px solid var(--border-dark);
-        color: var(--text-dark);
-      }
+      background: #000000;
+      border-top: 3px solid var(--accent-red);
+      box-shadow: inset 0 1px 0 var(--glow-red);
+      color: #ffffff;
     }
 
     .footer-container {
@@ -105,12 +100,19 @@ import { CommonModule } from '@angular/common';
       h3, h4 {
         margin-bottom: 1rem;
         font-size: 1.1rem;
+        color: var(--accent-red);
+        font-weight: 900;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       p {
         line-height: 1.6;
         margin-bottom: 0.5rem;
-        opacity: 0.8;
+        opacity: 0.9;
+        font-family: 'JetBrains Mono', monospace;
+        color: #ffffff;
       }
 
       ul {
@@ -122,11 +124,13 @@ import { CommonModule } from '@angular/common';
           margin-bottom: 0.5rem;
 
           a {
-            color: inherit;
-            transition: color 0.3s ease;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
 
             &:hover {
-              color: var(--primary-color);
+              color: var(--accent-red);
+              text-shadow: var(--glow-red);
             }
           }
         }
@@ -144,21 +148,18 @@ import { CommonModule } from '@angular/common';
         display: flex;
         align-items: center;
         justify-content: center;
-        background: var(--surface-light);
-        border-radius: 50%;
-        color: var(--primary-color);
+        background: #0a0a0a;
+        border-radius: 0;
+        color: var(--accent-red);
         transition: all 0.3s ease;
-        border: 1px solid var(--border-light);
-
-        @media (prefers-color-scheme: dark) {
-          background: var(--surface-dark);
-          border: 1px solid var(--border-dark);
-        }
+        border: 2px solid var(--accent-red);
+        box-shadow: var(--glow-red);
 
         &:hover {
-          background: var(--primary-color);
-          color: white;
-          transform: translateY(-3px);
+          background: var(--accent-red);
+          color: #ffffff;
+          transform: rotate(10deg) scale(1.1);
+          box-shadow: var(--glow-red-intense);
         }
 
         svg {
@@ -169,13 +170,10 @@ import { CommonModule } from '@angular/common';
     }
 
     .footer-divider {
-      height: 1px;
-      background: var(--border-light);
+      height: 3px;
+      background: var(--accent-red);
       margin: 2rem 0;
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--border-dark);
-      }
+      box-shadow: var(--glow-red);
     }
 
     .footer-bottom {
@@ -193,7 +191,10 @@ import { CommonModule } from '@angular/common';
 
       p {
         margin: 0;
-        opacity: 0.7;
+        opacity: 0.8;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        color: #ffffff;
       }
     }
 
@@ -203,16 +204,20 @@ import { CommonModule } from '@angular/common';
       justify-content: center;
 
       a {
-        color: inherit;
-        transition: color 0.3s ease;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
 
         &:hover {
-          color: var(--primary-color);
+          color: var(--accent-red);
+          text-shadow: var(--glow-red);
         }
       }
 
       span {
         opacity: 0.5;
+        color: var(--accent-red);
       }
     }
   `]

@@ -76,10 +76,25 @@ interface Project {
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--accent-red);
+        box-shadow: var(--glow-red);
+      }
 
       h2 {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
+        font-weight: 900;
+        letter-spacing: -1px;
 
         @media (max-width: 768px) {
           font-size: 2rem;
@@ -89,6 +104,8 @@ interface Project {
       p {
         font-size: 1.1rem;
         color: var(--text-light);
+        font-weight: 600;
+        letter-spacing: 0.5px;
 
         @media (prefers-color-scheme: dark) {
           color: var(--text-dark);
@@ -104,6 +121,7 @@ interface Project {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
+      margin-top: 3rem;
 
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -113,23 +131,20 @@ interface Project {
 
     .project-card {
       background: var(--surface-light);
-      border-radius: 12px;
+      border: 2px solid var(--accent-red);
+      border-radius: 0;
       overflow: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--glow-red);
 
       @media (prefers-color-scheme: dark) {
         background: var(--surface-dark);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
 
       &:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow);
-
-        @media (prefers-color-scheme: dark) {
-          box-shadow: var(--shadow-dark);
-        }
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: var(--glow-red-intense);
+        border-color: #FF3366;
 
         .project-overlay {
           opacity: 1;
@@ -142,7 +157,7 @@ interface Project {
       height: 200px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(135deg, var(--accent-red), #FF3366);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,8 +166,9 @@ interface Project {
     .image-placeholder {
       color: white;
       font-size: 1rem;
-      font-weight: 600;
-      opacity: 0.7;
+      font-weight: 900;
+      opacity: 0.9;
+      letter-spacing: 1px;
     }
 
     .project-overlay {
@@ -161,7 +177,7 @@ interface Project {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -176,19 +192,22 @@ interface Project {
     }
 
     .btn-icon {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--primary-color);
+      background: var(--accent-red);
       color: white;
-      border-radius: 50%;
+      border-radius: 0;
       transition: all 0.3s ease;
+      border: 2px solid var(--accent-red);
+      box-shadow: var(--glow-red);
 
       &:hover {
-        transform: scale(1.2);
-        background: var(--primary-dark);
+        transform: scale(1.25) rotate(-10deg);
+        background: #FF3366;
+        box-shadow: var(--glow-red-intense);
       }
 
       svg {
@@ -203,12 +222,15 @@ interface Project {
       h3 {
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
+        font-weight: 900;
+        letter-spacing: -0.5px;
       }
 
       p {
         color: var(--text-light);
         margin-bottom: 1rem;
         font-size: 0.95rem;
+        font-weight: 500;
 
         @media (prefers-color-scheme: dark) {
           color: var(--text-dark);
@@ -225,15 +247,17 @@ interface Project {
     .tag {
       display: inline-block;
       padding: 0.4rem 0.8rem;
-      background: var(--surface-light);
-      color: var(--primary-color);
-      border-radius: 20px;
+      background: var(--accent-red);
+      color: white;
+      border-radius: 0;
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 900;
+      border: 1px solid var(--accent-red);
+      transition: all 0.3s ease;
 
-      @media (prefers-color-scheme: dark) {
-        background: var(--surface-dark);
-        color: var(--primary-color);
+      &:hover {
+        box-shadow: var(--glow-red);
+        transform: scale(1.05);
       }
     }
   `]

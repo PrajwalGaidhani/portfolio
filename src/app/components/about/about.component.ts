@@ -67,11 +67,7 @@ interface Skill {
   styles: [`
     .about {
       padding: 4rem 2rem;
-      background: linear-gradient(135deg, var(--surface-light) 0%, var(--background-light) 100%);
-
-      @media (prefers-color-scheme: dark) {
-        background: linear-gradient(135deg, var(--surface-dark) 0%, var(--background-dark) 100%);
-      }
+      background: #000000;
     }
 
     .about-container {
@@ -82,10 +78,28 @@ interface Skill {
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
+      position: relative;
+      padding-bottom: 1.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--accent-red);
+        box-shadow: var(--glow-red);
+      }
 
       h2 {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
+        font-weight: 900;
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: -1px;
 
         @media (max-width: 768px) {
           font-size: 2rem;
@@ -94,11 +108,8 @@ interface Skill {
 
       p {
         font-size: 1.1rem;
-        color: var(--text-light);
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--text-dark);
-        }
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
       }
     }
 
@@ -118,11 +129,8 @@ interface Skill {
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
-      color: var(--text-light);
-
-      @media (prefers-color-scheme: dark) {
-        color: var(--text-dark);
-      }
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .stats {
@@ -137,31 +145,34 @@ interface Skill {
     }
 
     .stat {
-      background: var(--surface-light);
+      background: #0a0a0a;
       padding: 1.5rem;
-      border-radius: 8px;
+      border-radius: 0;
       text-align: center;
-      border: 1px solid var(--border-light);
+      border: 2px solid var(--accent-red);
+      box-shadow: var(--glow-red);
+      transition: all 0.3s ease;
 
-      @media (prefers-color-scheme: dark) {
-        background: var(--surface-dark);
-        border: 1px solid var(--border-dark);
+      &:hover {
+        box-shadow: var(--glow-red-intense);
+        transform: scale(1.02);
       }
 
       &-number {
         font-size: 2rem;
-        font-weight: 700;
-        color: var(--primary-color);
+        font-weight: 900;
+        color: var(--accent-red);
         margin-bottom: 0.5rem;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       &-label {
         font-size: 0.9rem;
-        color: var(--text-light);
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--text-dark);
-        }
+        color: #ffffff;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
       }
     }
 
@@ -174,7 +185,11 @@ interface Skill {
       h3 {
         font-size: 1.2rem;
         margin-bottom: 1rem;
-        color: var(--primary-color);
+        color: var(--accent-red);
+        font-weight: 900;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
     }
 
@@ -185,18 +200,23 @@ interface Skill {
     }
 
     .skill-item {
-      background: var(--primary-color);
-      color: white;
+      background: var(--accent-red);
+      color: #ffffff;
       padding: 0.6rem 1.2rem;
-      border-radius: 20px;
+      border-radius: 0;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
       transition: all 0.3s ease;
       display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: var(--glow-red);
+      border: 1px solid #ffffff;
 
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        transform: scale(1.08) rotate(2deg);
+        box-shadow: var(--glow-red-intense);
       }
     }
   `]

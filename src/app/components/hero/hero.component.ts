@@ -63,9 +63,23 @@ import { CommonModule } from '@angular/common';
       padding: 2rem;
       margin-top: 60px;
       background: linear-gradient(135deg, var(--background-light) 0%, var(--surface-light) 100%);
+      position: relative;
+      overflow: hidden;
 
       @media (prefers-color-scheme: dark) {
         background: linear-gradient(135deg, var(--background-dark) 0%, var(--surface-dark) 100%);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF0055' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 1;
+        pointer-events: none;
       }
     }
 
@@ -77,6 +91,8 @@ import { CommonModule } from '@angular/common';
       gap: 4rem;
       align-items: center;
       width: 100%;
+      position: relative;
+      z-index: 1;
 
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -84,28 +100,45 @@ import { CommonModule } from '@angular/common';
       }
     }
 
+    .hero-content {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--accent-red), transparent);
+      }
+    }
+
     .hero-content h1 {
       font-size: 3.5rem;
       margin-bottom: 1rem;
       line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -2px;
 
       @media (max-width: 768px) {
         font-size: 2.5rem;
       }
 
       .gradient-text {
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--accent-red);
+        font-weight: 900;
+        letter-spacing: -2px;
       }
     }
 
     .subtitle {
       font-size: 1.25rem;
-      color: var(--primary-color);
+      color: var(--accent-red);
       margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
 
       @media (max-width: 768px) {
         font-size: 1rem;
@@ -117,6 +150,7 @@ import { CommonModule } from '@angular/common';
       line-height: 1.8;
       margin-bottom: 2rem;
       color: var(--text-light);
+      font-weight: 500;
 
       @media (prefers-color-scheme: dark) {
         color: var(--text-dark);
@@ -139,36 +173,40 @@ import { CommonModule } from '@angular/common';
 
     .btn {
       padding: 0.75rem 2rem;
-      border-radius: 8px;
+      border-radius: 0;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 900;
       transition: all 0.3s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
 
       &.btn-primary {
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        background: var(--accent-red);
         color: white;
-        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        border: 2px solid var(--accent-red);
+        box-shadow: var(--glow-red);
 
         &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: var(--glow-red-intense);
         }
       }
 
       &.btn-secondary {
         background: transparent;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
+        border: 2px solid var(--accent-red);
+        color: var(--accent-red);
 
         @media (prefers-color-scheme: dark) {
-          border-color: var(--text-dark);
-          color: var(--text-dark);
+          border: 2px solid var(--accent-red);
+          color: var(--accent-red);
         }
 
         &:hover {
-          background: var(--primary-color);
+          background: var(--accent-red);
           color: white;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: var(--glow-red);
         }
       }
     }
@@ -178,28 +216,27 @@ import { CommonModule } from '@angular/common';
       gap: 1.5rem;
 
       a {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
+        border-radius: 0;
         background: var(--surface-light);
-        color: var(--primary-color);
+        color: var(--accent-red);
         transition: all 0.3s ease;
-        border: 2px solid var(--border-light);
+        border: 2px solid var(--accent-red);
 
         @media (prefers-color-scheme: dark) {
           background: var(--surface-dark);
-          border: 2px solid var(--border-dark);
-          color: var(--text-dark);
+          color: var(--accent-red);
         }
 
         &:hover {
-          background: var(--primary-color);
+          background: var(--accent-red);
           color: white;
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+          transform: translateY(-5px) rotate(10deg);
+          box-shadow: var(--glow-red-intense);
         }
 
         svg {
@@ -222,16 +259,17 @@ import { CommonModule } from '@angular/common';
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 3px solid var(--accent-red);
+      box-shadow: var(--glow-red);
     }
 
     .glow-circle {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 0;
+      background: linear-gradient(135deg, var(--accent-red), #FF3366);
       opacity: 0.1;
       animation: glow 3s ease-in-out infinite;
-      box-shadow: 0 0 60px rgba(79, 70, 229, 0.3);
     }
   `]
 })

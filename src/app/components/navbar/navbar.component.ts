@@ -45,19 +45,18 @@ import { RouterLink } from '@angular/router';
       box-shadow: none;
       transition: all 0.3s ease;
       z-index: 1000;
-      border-bottom: 1px solid transparent;
+      border-bottom: 3px solid transparent;
 
       @media (prefers-color-scheme: dark) {
         background: var(--background-dark);
       }
 
       &.scrolled {
+        border-bottom: 3px solid var(--accent-red);
         box-shadow: var(--shadow);
-        border-bottom: 1px solid var(--border-light);
 
         @media (prefers-color-scheme: dark) {
           box-shadow: var(--shadow-dark);
-          border-bottom: 1px solid var(--border-dark);
         }
       }
     }
@@ -74,16 +73,36 @@ import { RouterLink } from '@angular/router';
     .logo {
       a {
         font-size: 1.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-weight: 900;
+        color: var(--text-light);
+        position: relative;
+        letter-spacing: -1px;
+
+        @media (prefers-color-scheme: dark) {
+          color: var(--text-dark);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 100%;
+          height: 3px;
+          background: var(--accent-red);
+          transform: scaleX(1);
+          transition: all 0.3s ease;
+        }
+
+        &:hover::before {
+          box-shadow: var(--glow-red);
+        }
       }
     }
 
     .logo-text {
-      letter-spacing: -0.5px;
+      letter-spacing: -2px;
+      font-weight: 900;
     }
 
     .nav-links {
@@ -96,10 +115,11 @@ import { RouterLink } from '@angular/router';
 
       li {
         a {
-          font-weight: 500;
+          font-weight: 900;
           color: var(--text-light);
           position: relative;
-          transition: color 0.3s ease;
+          transition: all 0.3s ease;
+          letter-spacing: 0.5px;
 
           @media (prefers-color-scheme: dark) {
             color: var(--text-dark);
@@ -108,12 +128,17 @@ import { RouterLink } from '@angular/router';
           &::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
+            height: 3px;
+            background: var(--accent-red);
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-red);
+          }
+
+          &:hover {
+            color: var(--accent-red);
           }
 
           &:hover::after {
@@ -126,7 +151,7 @@ import { RouterLink } from '@angular/router';
     .menu-toggle {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       background: none;
       cursor: pointer;
       padding: 0;
@@ -137,7 +162,7 @@ import { RouterLink } from '@angular/router';
         width: 100%;
         height: 3px;
         background: var(--text-light);
-        border-radius: 2px;
+        border-radius: 1px;
         transition: all 0.3s ease;
 
         @media (prefers-color-scheme: dark) {
@@ -147,13 +172,15 @@ import { RouterLink } from '@angular/router';
 
       &.active {
         span:first-child {
-          transform: rotate(45deg) translate(8px, 8px);
+          transform: rotate(45deg) translate(10px, 10px);
+          background: var(--accent-red);
         }
         span:nth-child(2) {
           opacity: 0;
         }
         span:last-child {
-          transform: rotate(-45deg) translate(7px, -7px);
+          transform: rotate(-45deg) translate(8px, -8px);
+          background: var(--accent-red);
         }
       }
 
@@ -163,8 +190,8 @@ import { RouterLink } from '@angular/router';
     }
 
     .theme-toggle {
-      background: var(--surface-light);
-      border: 1px solid var(--border-light);
+      background: transparent;
+      border: 2px solid var(--accent-red);
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -172,14 +199,16 @@ import { RouterLink } from '@angular/router';
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--glow-red);
 
       @media (prefers-color-scheme: dark) {
-        background: var(--surface-dark);
-        border: 1px solid var(--border-dark);
+        border: 2px solid var(--accent-red);
       }
 
       &:hover {
-        transform: scale(1.1) rotate(20deg);
+        transform: scale(1.15) rotate(25deg);
+        box-shadow: var(--glow-red-intense);
       }
     }
 
@@ -190,12 +219,13 @@ import { RouterLink } from '@angular/router';
         left: 0;
         width: 100%;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 2rem;
         background: var(--background-light);
         box-shadow: var(--shadow);
         display: none;
         transition: all 0.3s ease;
+        border-top: 3px solid var(--accent-red);
 
         @media (prefers-color-scheme: dark) {
           background: var(--background-dark);
@@ -213,7 +243,8 @@ import { RouterLink } from '@angular/router';
             }
 
             &:hover {
-              color: var(--primary-color);
+              color: var(--accent-red);
+              text-shadow: var(--glow-red);
             }
           }
         }
